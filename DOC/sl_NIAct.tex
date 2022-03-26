@@ -1,0 +1,140 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+\mode<presentation>
+{
+ \usetheme[progressbar=frametitle]{metropolis}
+ \setbeamertemplate{navigation symbols}{}
+ \setbeamertemplate{caption}[numbered]
+ \setbeamertemplate{itemize subitem}{\tiny\raise1.5pt\hbox{\donotcoloroutermaths$\blacktriangleright$}}
+}
+
+\usepackage{booktabs}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage[latin1]{inputenc}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{tabulary}
+\usepackage{threeparttable}
+\usepackage{longtable}
+
+\title{Characterising cheque dishonour cases in India: Causes for delays and policy implications}
+\author{Devendra Damle, Jitender Madaan, Karan Gulati, Manish Kumar Singh, and Nikhil Borwankar}
+\date{\today}
+
+\begin{document}
+\frame{\maketitle}
+
+\begin{frame}{The problem}
+\begin{itemize}
+ \item India has a slow judiciary - courts are clogged with large backlogs.
+ \item Part of the reason is the (supposed) large share of Negotiable Instruments Act, 1881 (NI Act) cases.
+ \item However, there is disagreement on the burden of these cases on courts. 
+ \item To understand and curtail the pendency of NI Act Cases, the Supreme Court of India has taken on board a suo-motu case and appointed Amici Curiae.
+ \item The Amici has made several recommendations, including:
+ \begin{itemize}
+ \item clarifying jurisdictional issues;
+ \item encouraging pre-trial and post-summons mediation;
+ \item limiting how many cases are converted into summons trials, 
+ \item etc. 
+ \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{The Study}
+\begin{itemize}
+ \item Our study attempts to assess the potential effect of the proposed interventions.
+ \item The case characteristics examined were based on: \begin{enumerate}
+ \item the importance of the characteristic, and
+ \item the feasibility of finding reliable information about it in the eCourts data.
+ \item[]
+ \end{enumerate} \pause
+ \item The six chosen case characteristics map onto the interventions proposed by the Supreme Court and Amici Curiae, and are:
+
+ \begin{enumerate}
+ \item The accused fails to appear before the court for at least one hearing;
+ \item The case is converted to a summons trial;
+ \item The case is referred to mediation;
+ \item The case has jurisdictional issues and is transferred to another court, as a result;
+ \item The case contains a multiplicity of proceedings --- either the dishonoured cheque was issued to satisfy multiple transactions, or multiple cheques were dishonoured;
+ \item The case was contested.
+\end{enumerate}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Results i}
+ \begin{enumerate}
+ \item[]
+ \item The burden on courts
+ \begin{itemize}
+ \item We short-listed 8 states and 2 union territories, and drew a random sample of 363,720 cases.
+ \item NI Act cases represent approximately 13.2\% of courts' workload (pending and disposed).
+ \end{itemize}
+ \end{enumerate}
+
+{\scriptsize \begin{longtable}{@{}lrrrr|c@{}}
+\toprule
+\textbf{State} & \multicolumn{1}{p{1.5cm}}{\textbf{NI Act cases}} & \multicolumn{1}{p{1.5cm}}{\textbf{Non-NI Act cases}} & \multicolumn{1}{p{1.5cm}}{\textbf{\%NI Act cases}} & \textbf{Total cases} & \multicolumn{1}{p{3cm}}{\textbf{Median days to dispose NI Act cases}}\\ \midrule
+\endhead
+Andhra Pradesh & 2638 & 18567 & 12.4 & 21205 & 451\\
+Chandigarh & 731 & 1364 & 34.9 & 2095 & 453\\
+Delhi & 5202 & 14742 & 26.1 & 19944 & 518\\
+Goa & 399 & 2713 & 12.8 & 3112 & 352\\
+Gujarat & 6752 & 49476 & 12.0 & 56228 & 323\\
+Haryana & 5319 & 33542 & 13.7 & 38861 & 488\\
+Himachal Pradesh & 1164 & 11948 & 8.9 & 13112 & 491\\
+Karnataka & 11184 & 75807 & 12.9 & 86991 & 218\\
+Maharashtra & 8875 & 82673 & 9.7 & 91548 & 520\\
+Punjab & 5885 & 24739 & 19.2 & 30624 & 440\\
+\midrule
+\textbf{Total} & \textbf{48149} & \textbf{315571} & \textbf{13.2} & \textbf{363720} & \textbf{395}\\ \bottomrule
+\end{longtable}
+}
+\end{frame}
+
+\begin{frame}{Results ii}
+
+\begin{enumerate}
+ \setcounter{enumi}{1}
+ \item Determinants of duration and number of hearings
+ \begin{itemize}
+ \item Controlling for the State-level effects, most intended targets of the Amici Curiae and Supreme Court do increase the duration of NI Act cases.
+ \end{itemize}
+\end{enumerate}
+
+{\scriptsize \begin{longtable}{@{}p{2.5cm}rrrrr}
+ \toprule
+ \textbf{Characteristic} & \multicolumn{1}{p{1.7cm}}{\textbf{Number of cases}} &
+ \multicolumn{1}{p{1.7cm}}{\textbf{As \% of NI Act cases}}
+ & \multicolumn{1}{p{1.7cm}}{\textbf{As \% of total cases}}
+ & \multicolumn{1}{p{1.7cm}}{\textbf{Effect on days to dispose}} &
+ \multicolumn{1}{p{1.7cm}}{\textbf{Effect on hearings to dispose}}
+ \\
+ \midrule
+ Non appearance of the accused & 33625 & 69.8\% & 9.2\% & +213 & +7.0 \\ \midrule
+ Conversion to summons trial & 12876 & 26.7\% & 3.5\% & +111 & +7.2 \\ \midrule
+ Mediation & 10711 & 22.2\% & 2.9\% & +108 & +3.3 \\ \midrule
+ Jurisdictional issues & 14098 & 29.2\% & 3.9\% & +287 & +5.7 \\ \midrule
+ Multiplicity of proceedings & 2010 & 4.2\% & 0.6\% & +171 & +10.0 \\ \midrule
+ Contested & 8283 & 17.2\% & 2.3\% & --46 & +2.9 \\ \midrule
+ \textbf{Total} & 48191 & 100.0\% & 13.2\% & N/A & N/A \\
+ \bottomrule
+ \\
+\end{longtable}
+}
+
+\end{frame}
+
+\begin{frame}{Way Forward}
+ \begin{itemize}
+ \item This study gives estimates of the scale of the impact of proposed interventions, thus giving a framework to prioritise the interventions
+ \item The proportion of NI Act cases is significant (13.2\%) and highlights why it is necessary to support policy decisions with robust empirical studies.
+ \item It also demonstrates the need for courts to institute mechanisms to record better case characteristics and case flow data. 
+ \item Courts, in turn, can use these analyses to improve procedures and administration and ensure better justice delivery.
+ \end{itemize}
+\end{frame}
+
+\begin{frame}
+ \centering \huge{Thank you}
+\end{frame}
+
+\end{document}
