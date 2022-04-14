@@ -64,20 +64,19 @@ Steps:
 \item So we were left with 2 UTs - Chandigarh and Delhi, 2 small states - Goa and Himachal Pradesh, 2 mid size states - Punjab and Haryana, 4 large states - Karnataka, Gujarat, Maharashtra, and Andhra Pradesh. The NI cases as a proportion of total cases vary from 7.35\% in Himachal Pradesh to 22.06% in Chandigarh in our final data. The cases where final order is available in English as a proportion of total NI cases varies from 23.11\% in Gujarat to 80% in Chandigarh. In terms of data quality, Chandigarh, Punjab, Haryana, and Karnataka tops the chart. 
 \end{enumerate}
 
-\textcolor{red}{Devendra: I have added the text above. Have a look and please populate the table below.}
-
-\begin{longtable}{p{0.32\textwidth}p{0.6\textwidth}}
-\label{tab:sample_selection}
-\\
-\toprule
-\multicolumn{2}{c}{\textbf{States Excluded}} \\ \midrule
-\multicolumn{1}{c|}{\textbf{Criteria}} & \multicolumn{1}{c}{\textbf{States}} \\ \midrule
-\multicolumn{1}{p{0.32\textwidth}|}{Unable to download sample data} & \\ \midrule
-\multicolumn{1}{p{0.32\textwidth}|}{No cases related to \gls{ni}} & \\ \midrule
-\multicolumn{1}{p{0.32\textwidth}|}{\textless 2\% of the final orders are machine-readable and in English} & \\ \midrule
-\multicolumn{2}{c}{\textbf{Final Sample}} \\ \midrule
- \multicolumn{2}{p{0.92\textwidth}}{\textit{Andhra Pradesh, Chandigarh, Delhi, Goa, Gujarat, Haryana, Himachal Pradesh, Karnataka, Maharashtra, and Punjab.}} \\ \bottomrule
-\end{longtable}
+After this we are left with the following states and UTs from which we have drawn our sample ---
+\begin{enumerate}
+\item Andhra Pradesh, 
+\item Chandigarh, 
+\item Delhi, 
+\item Goa, 
+\item Gujarat, 
+\item Haryana,
+\item Himachal Pradesh, 
+\item Karnataka, 
+\item Maharashtra, and 
+\item Punjab.
+\end{enumerate}
 
 \pagebreak
 
@@ -214,7 +213,7 @@ As Tables \ref{tab:yearFE}, \ref{tab:hearFE}, \ref{tab:durationStateWise}, \ref{
 
 Survival models have their origins in clinical research. The models estimate the probability of an event occurring within a certain time given that certain conditions are met. In our case, the model would estimate two things --- (1) the probability of a case remaining pending a certain number of years after filing, and (2) how different case characteristics affect the probability of the case concluding before the end date of observations (i.e. 15th September 2021).\footcite[For a prior example of the use of hazard models for empirical judicial analysis, see][]{datta2017_itatDelays}
 
-As demonstrated in \textcite{datta2017_itatDelays}, we first use Kaplan-Meier statistics to calculate the probability of the case surviving --- i.e. not concluding --- in a certain number of days after filing. We calculate this probability by controlling for the year of filing and the state. Figure \ref{fig:stateSurvival} shows the probability of a case remaining pending after a certain number of days, delineated by the state. Figure \ref{fig:yearSurvival} shows the same for the year of filing. The figures show that the year of filing and the state both significantly affect the duration of the case. As an example, cases in Himachal Pradesh take much longer to dispose than cases in Chandigarh. \textcolor{red}{Manish, please add an explanation for why the survival probability is higher for cases filed in later years. Because there are going to be more pending cases in later years?}
+As demonstrated in \textcite{datta2017_itatDelays}, we first use Kaplan-Meier statistics to calculate the probability of the case surviving --- i.e. not concluding --- in a certain number of days after filing. We calculate this probability by controlling for the year of filing and the state. Figure \ref{fig:stateSurvival} shows the probability of a case remaining pending after a certain number of days, delineated by the state. Figure \ref{fig:yearSurvival} shows the same for the year of filing. The figures show that the year of filing and the state both significantly affect the duration of the case. As an example, cases in Himachal Pradesh take much longer to dispose than cases in Chandigarh.
 
 Next, we estimate the effect of each case characteristic on the probability of the case getting disposed by the end of the observation period (i.e. 15th September 2021). Like in \textcite{datta2017_itatDelays}, we use the Cox-proportional hazard model to estimate the effect of each case characteristic. Table \ref{tab:survialProb} shows the results of the Cox-proportional hazard model. A negative coefficient indicates a lower probability of the case completing before the end of the observation period, and a positive coefficient indicates a higher probability of the case completing. As an example, jurisdictional issues and non-appearance of the accused reduce the probability of the case concluding (before 15th September 2021) by approximately 71\%, whereas the case being contested increases this probability by 55\%.
 
