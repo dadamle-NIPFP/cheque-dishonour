@@ -7,15 +7,18 @@
  \setbeamertemplate{itemize subitem}{\tiny\raise1.5pt\hbox{\donotcoloroutermaths$\blacktriangleright$}}
 }
 
-\usepackage{booktabs}
 \usepackage[T1]{fontenc}
-\usepackage{graphicx}
 \usepackage[latin1]{inputenc}
-\usepackage{multicol}
 \usepackage{multirow}
+\usepackage{graphicx}
 \usepackage{tabulary}
 \usepackage{threeparttable}
 \usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{amsmath}
+
+\usepackage[backend=biber,style=authoryear-comp]{biblatex}
+\addbibresource{chequeBounce.bib}
 
 \title{Characterising cheque dishonour cases in India: Causes for delays and policy implications}
 \author{Devendra Damle, Jitender Madaan, Karan Gulati, Manish Kumar Singh, and Nikhil Borwankar}
@@ -26,105 +29,271 @@
 
 \begin{frame}{The problem}
 \begin{itemize}
- \item India has a slow judiciary - courts are clogged with large backlogs.
- \item Part of the reason is the (supposed) large share of Negotiable Instruments Act, 1881 (NI Act) cases.
- \item However, there is disagreement on the burden of these cases on courts. 
+ \item India has a slow judiciary --- courts are clogged with large backlogs.\footnote{4.1 Crore pending cases in lower courts as of March 2022}
+ \item Part of the reason is the large share of and delays in Negotiable Instruments Act, 1881 (NI Act) cases.
  \item To understand and curtail the pendency of NI Act Cases, the Supreme Court of India has taken on board a suo-motu case and appointed Amici Curiae.
- \item The Amici has made several recommendations, including:
+ \item The Amici have made several recommendations, including:
  \begin{itemize}
+ \item ensuring the presence of the accused;
+ \item limiting how many cases are converted into summons trials;
+ \item encouraging more pre-trial and post-summons mediation;
  \item clarifying jurisdictional issues;
- \item encouraging pre-trial and post-summons mediation;
- \item limiting how many cases are converted into summons trials, 
- \item etc. 
+ \item preventing multiplicity of proceedings;
+ \item creating more special NI Act courts.
  \end{itemize}
 \end{itemize}
 \end{frame}
 
-\begin{frame}{The Study}
+\begin{frame}
+  \frametitle{The study}
 \begin{itemize}
  \item Our study attempts to assess the potential effect of the proposed interventions.
- \item The case characteristics examined were based on: \begin{enumerate}
- \item the importance of the characteristic, and
- \item the feasibility of finding reliable information about it in the eCourts data.
- \item[]
- \end{enumerate} \pause
+ \item The case characteristics examined were based on:
+   \begin{enumerate}
+   \item the importance of the characteristic, and
+   \item the feasibility of finding reliable information about it in the eCourts data.
+   \end{enumerate}
  \item The six chosen case characteristics map onto the interventions proposed by the Supreme Court and Amici Curiae, and are:
-
- \begin{enumerate}
- \item The accused fails to appear before the court for at least one hearing;
- \item The case is converted to a summons trial;
- \item The case is referred to mediation;
- \item The case has jurisdictional issues and is transferred to another court, as a result;
- \item The case contains a multiplicity of proceedings --- either the dishonoured cheque was issued to satisfy multiple transactions, or multiple cheques were dishonoured;
- \item The case was contested.
-\end{enumerate}
+   \begin{enumerate}
+   \item The accused fails to appear before the court for at least one hearing;
+   \item The case is converted to a summons trial;
+   \item The case is referred to mediation;
+   \item The case has jurisdictional issues and is transferred to another court, as a result;
+   \item The case contains a multiplicity of proceedings --- either the dishonoured cheque was issued to satisfy multiple transactions, or multiple cheques were dishonoured;
+   \item The case was contested.
+   \end{enumerate}
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Results i}
- \begin{enumerate}
- \item[]
- \item The burden on courts
- \begin{itemize}
- \item We short-listed 8 states and 2 union territories, and drew a random sample of 363,720 cases.
- \item NI Act cases represent approximately 13.2\% of courts' workload (pending and disposed).
- \end{itemize}
- \end{enumerate}
+\begin{frame}
+  \frametitle{Sampling strategy}
+  \begin{itemize}
+  \item Preliminary:
+    \begin{enumerate}
+    \item Random sample of 100,000 cases filed between 1st January
+      2014 and 31st December 2018 across India (all states and UTs)
+      from the database published by Development Data Lab.
+    \item We estimated the number of NI Act Cases using the act name
+      field and the orders and judgments.
+    \item We dropped states and UTs where we could not download
+      orders/judgments, could not find any NI cases, or where less
+      than 2\% of the final orders (as a proportion of total NI cases)
+      were in English.
+    \item We also dropped eight States where less than 1\% of the
+      total cases filed had orders that were machine-readable and in
+      English.
+    \end{enumerate}
+  \item Final sample:
+    \begin{enumerate}
+    \item Final sample contains 8 states and 2 UTs.
+    \item Random sample of 5 lakh cases across these states and UTs. 
+    \item Approximately 4 lakh were original cases.
+    \item We were able to download data for 363,720 cases.
+    \item Out of these 48,149 are NI Act cases, of which 37,469 are disposed.
+  \end{enumerate}
+  \end{itemize}
+\end{frame}
 
-{\scriptsize \begin{longtable}{@{}lrrrr|c@{}}
+\begin{frame}[allowframebreaks]
+  \frametitle{Overview of data}
+\begin{longtable}{@{}lrrr@{}}
 \toprule
-\textbf{State} & \multicolumn{1}{p{1.5cm}}{\textbf{NI Act cases}} & \multicolumn{1}{p{1.5cm}}{\textbf{Non-NI Act cases}} & \multicolumn{1}{p{1.5cm}}{\textbf{\%NI Act cases}} & \textbf{Total cases} & \multicolumn{1}{p{3cm}}{\textbf{Median days to dispose NI Act cases}}\\ \midrule
+\textbf{State} & \textbf{NI Act cases} & \textbf{\%NI Act cases} & \textbf{Total cases}\\ \midrule
 \endhead
-Andhra Pradesh & 2638 & 18567 & 12.4 & 21205 & 451\\
-Chandigarh & 731 & 1364 & 34.9 & 2095 & 453\\
-Delhi & 5202 & 14742 & 26.1 & 19944 & 518\\
-Goa & 399 & 2713 & 12.8 & 3112 & 352\\
-Gujarat & 6752 & 49476 & 12.0 & 56228 & 323\\
-Haryana & 5319 & 33542 & 13.7 & 38861 & 488\\
-Himachal Pradesh & 1164 & 11948 & 8.9 & 13112 & 491\\
-Karnataka & 11184 & 75807 & 12.9 & 86991 & 218\\
-Maharashtra & 8875 & 82673 & 9.7 & 91548 & 520\\
-Punjab & 5885 & 24739 & 19.2 & 30624 & 440\\
+Andhra Pradesh & 2638 & 12.4 & 21205\\
+Chandigarh & 731 & 34.9 & 2095\\
+Delhi & 5202 & 26.1 & 19944\\
+Goa & 399 & 12.8 & 3112\\
+Gujarat & 6752 & 12.0 & 56228\\
+Haryana & 5319 & 13.7 & 38861\\
+Himachal Pradesh & 1164 & 8.9 & 13112\\
+Karnataka & 11184 & 12.9 & 86991\\
+Maharashtra & 8875 & 9.7 & 91548\\
+Punjab & 5885 & 19.2 & 30624\\
 \midrule
-\textbf{Total} & \textbf{48149} & \textbf{315571} & \textbf{13.2} & \textbf{363720} & \textbf{395}\\ \bottomrule
+\textbf{Total} & \textbf{48149} & \textbf{13.2} & \textbf{363720}\\ \bottomrule
 \end{longtable}
-}
+
+\framebreak
+{\small \begin{longtable}{@{}lrrrr@{}}
+\toprule
+& & & \textbf{Median days} & \textbf{Median hearings} \\
+\textbf{State} & \textbf{Disposed cases} & \textbf{Pending cases} & \textbf{to dispose} & \textbf{to dispose} \\
+\midrule
+Andhra Pradesh & 2154 & 484 & 451 & 16 \\
+Chandigarh & 703 & 28 & 453 & 9 \\
+Delhi & 3910 & 1292 & 518 & 8 \\
+Goa & 280 & 119 & 352 & 16 \\
+Gujarat & 5183 & 1569 & 323 & 13 \\
+Haryana & 4241 & 1078 & 488 & 12 \\
+Himachal Pradesh & 673 & 491 & 547 & 16 \\
+Karnataka & 10221 & 963 & 218 & 6 \\
+Maharashtra & 5024 & 3851 & 520 & 19 \\
+Punjab & 5080 & 805 & 440 & 13 \\
+\midrule
+\textbf{Overall} & \textbf{37469} & \textbf{10680} & \textbf{395} & \textbf{11} \\
+\bottomrule
+\end{longtable}}
 \end{frame}
 
-\begin{frame}{Results ii}
+\begin{frame}
+  \frametitle{Hypotheses}
+{  \footnotesize
+  \begin{longtable}{@{}p{4cm}ccp{7cm}@{}}
+    \toprule
+    \multirow{2}{*}{\textbf{Determinant}} & \multicolumn{2}{c}{\textbf{Expected effect on}} & \multirow{2}{*}{\textbf{What the literature says}}\\
+    \cmidrule{2-3}
+                                          & \textbf{Days} & \textbf{Hearings}\\
+    \midrule
+    Non appearance of the accused & + & + & Accused absconding is a leading cause of delays in the US, UK and Fiji.\footcites{ostrom2000efficiency}{crownProsecutionService2006_magistrateCourtEfficiency}{llangasinghe1988_fijiJudicialDelays}\\
+    Conversion to summons trial & + & + & No clear evidence but US and UK policies assume summary trials will reduce delays.\footcite{miller2003}\\
+    Mediation & - & - & Inconclusive. Study of Latin American courts finds it lowers case duration.\footcite{buscaglia1997_latinAmericaCourtDelays} Review of empirical research on US courts finds no clear relationship.\footcite{wissler2004effectiveness}\\
+    Jurisdictional issues & + & + & - \\
+    Multiplicity of proceedings & + & + & -\\
+    Case is contested & + & + & Contested cases usually take longer according to studies from Latin America, USA and UK.\footcites{crownProsecutionService2006_magistrateCourtEfficiency}{buscaglia1997_latinAmericaCourtDelays}{ostrom2000efficiency}\\
+    \bottomrule
+  \end{longtable}
+}\end{frame}
 
-\begin{enumerate}
- \setcounter{enumi}{1}
- \item Determinants of duration and number of hearings
- \begin{itemize}
- \item Controlling for the State-level effects, most intended targets of the Amici Curiae and Supreme Court do increase the duration of NI Act cases.
- \end{itemize}
-\end{enumerate}
-
-{\scriptsize \begin{longtable}{@{}p{2.5cm}rrrrr}
- \toprule
- \textbf{Characteristic} & \multicolumn{1}{p{1.7cm}}{\textbf{Number of cases}} &
- \multicolumn{1}{p{1.7cm}}{\textbf{As \% of NI Act cases}}
- & \multicolumn{1}{p{1.7cm}}{\textbf{As \% of total cases}}
- & \multicolumn{1}{p{1.7cm}}{\textbf{Effect on days to dispose}} &
- \multicolumn{1}{p{1.7cm}}{\textbf{Effect on hearings to dispose}}
- \\
- \midrule
- Non appearance of the accused & 33625 & 69.8\% & 9.2\% & +213 & +7.0 \\ \midrule
- Conversion to summons trial & 12876 & 26.7\% & 3.5\% & +111 & +7.2 \\ \midrule
- Mediation & 10711 & 22.2\% & 2.9\% & +108 & +3.3 \\ \midrule
- Jurisdictional issues & 14098 & 29.2\% & 3.9\% & +287 & +5.7 \\ \midrule
- Multiplicity of proceedings & 2010 & 4.2\% & 0.6\% & +171 & +10.0 \\ \midrule
- Contested & 8283 & 17.2\% & 2.3\% & --46 & +2.9 \\ \midrule
- \textbf{Total} & 48191 & 100.0\% & 13.2\% & N/A & N/A \\
- \bottomrule
- \\
-\end{longtable}
-}
-
+\begin{frame}
+  \frametitle{Overview of cases with identified characteristics}
+  \footnotesize
+  \begin{longtable}{@{}lrrrrrrr@{}}
+    \toprule
+\multirow{2}{*}{\textbf{State}} & \textbf{Total}& \textbf{Non} & \textbf{Summons} & \textbf{Mediation} & \textbf{Jurisdiction} & \textbf{Multiplicity} & \textbf{Contested} \\
+& \textbf{Cases} & \textbf{Appearance} & \textbf{Trial} & & \textbf{Issue} & &\\
+\midrule
+  Andhra Pradesh & 2638 & 63.5 & 30.9 & 9.9 & 8.0 & 4.7 & 28.5\\
+  Chandigarh & 731 & 95.9 & 55.8 & 27.9 & 38.0 & 7.3 & 14.5\\
+  Delhi & 5202 & 39.6 & 26.1 & 19.7 & 20.1 & 4.0 & 10.0\\
+  Goa & 399 & 95.5 & 19.5 & 22.6 & 8.3 & 4.5 & 27.3\\
+  Gujarat & 6752 & 75.9 & 5.8 & 6.0 & 45.3 & 1.6 & 11.8\\
+  Haryana & 5319 & 98.0 & 63.5 & 32.5 & 39.7 & 10.2 & 11.3\\
+  Himachal Pradesh & 1164 & 74.2 & 30.2 & 43.5 & 25.7 & 2.8 & 9.7\\
+  Karnataka & 11184 & 52.3 & 17.9 & 16.5 & 8.5 & 3.7 & 32.3\\
+  Maharashtra & 8875 & 66.9 & 10.9 & 28.7 & 43.2 & 1.5 & 12.6\\
+  Punjab & 5885 & 98.9 & 53.3 & 35.7 & 38.8 & 6.5 & 9.4\\
+  \bottomrule
+  \end{longtable}
 \end{frame}
 
-\begin{frame}{Way Forward}
+\begin{frame}
+  \frametitle{Regression model}
+  \begin{equation*}
+    \begin{split}
+      Duration_i \ & or \ Number \ of \ hearings_i \\
+      & = \beta_1 \ D_1(Non-appearance_i) + \beta_2 \ D_2(Jurisdiction \ Issue_i) + \beta_3 \ D_3(Mediation_i) \\
+      & + \beta_4 \ D_4(Multiplicity_i) + \beta_5 \ D_5(Summons_i) + \beta_6 \ D_6(Contested_i) \\
+      & + \alpha_s + Y_t + \epsilon_{it}
+    \end{split}
+  \end{equation*}
+  
+$\alpha_s$ --- State-specific fixed effect\\
+$Y_t$ --- Year dummies\\
+$\epsilon_{it}$ --- unobserved shocks affecting the performance of different cases
+\end{frame}
+
+\begin{frame}
+  \frametitle{Results: Effect on days to dispose}
+  \scriptsize
+  \begin{longtable}{lccccccc} 
+    \\[-1.8ex]
+    \hline \\[-1.8ex] 
+    & \multicolumn{7}{c}{\textit{Dependent variable: Disposal Days}} \\ 
+    \cline{2-8} 
+    % \\[-1.8ex] & \multicolumn{7}{c}{days} \\ 
+    \\[-1.8ex] & (1) & (2) & (3) & (4) & (5) & (6) & (7)\\ 
+    \hline \\[-1.8ex] 
+    D(non-Appearance) & 265.271$^{***}$ &  &  &  &  &  & 200.695$^{***}$ \\ 
+    & (5.184) &  &  &  &  &  & (4.979) \\ \hline
+    D(Summons) &  & 178.660$^{***}$ &  &  &  &  & 112.250$^{***}$ \\ 
+    &  & (5.322) &  &  &  &  & (5.214) \\\hline
+    D(Mediation) &  &  & 161.640$^{***}$ &  &  &  & 100.383$^{***}$ \\ 
+    &  &  & (5.338) &  &  &  & (4.971) \\ \hline
+    D(Jurisdiction) &  &  &  & 309.402$^{***}$ &  &  & 271.877$^{***}$ \\ 
+    &  &  &  & (5.138) &  &  & (4.921) \\ \hline
+    D(Multiple cheques) &  &  &  &  & 271.545$^{***}$ &  & 168.070$^{***}$ \\ 
+    &  &  &  &  & (10.117) &  & (9.938) \\\hline
+    D(Contested) &  &  &  &  &  & 0.200 & $-$53.246$^{***}$ \\ 
+    &  &  &  &  &  & (5.614) & (5.351) \\
+    \hline \\[-1.8ex] 
+    State FE & Y & Y & Y & Y & Y & Y & Y \\ 
+    Year FE & Y & Y & Y & Y & Y & Y & Y \\
+    \hline \\[-1.8ex] 
+    Observations & 35,427 & 35,427 & 35,427 & 35,427 & 35,427 & 35,427 & 35,427 \\ 
+    R$^{2}$ & 0.137 & 0.102 & 0.097 & 0.159 & 0.092 & 0.073 & 0.241 \\ 
+    Adjusted R$^{2}$ & 0.137 & 0.101 & 0.096 & 0.159 & 0.091 & 0.073 & 0.241 \\
+    \hline \\[-1.8ex] 
+    \textit{Note:}  & \multicolumn{7}{l}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+  \end{longtable}
+\end{frame}
+
+\begin{frame}{Results: Effect on hearings to dispose}
+  \scriptsize
+  \begin{longtable}{lccccccc}
+    \\[-1.8ex]
+    \hline \\[-1.8ex]
+    & \multicolumn{7}{c}{\textit{Dependent variable: Number of hearing (for disposed cases only)}} \\
+    \cline{2-8}
+    \\[-1.8ex] & (1) & (2) & (3) & (4) & (5) & (6) & (7)\\
+    \hline \\[-1.8ex]
+    D(non-Appearance) & 9.641$^{***}$ & & & & & & 7.049$^{***}$ \\
+    & (0.146) & & & & & & (0.131) \\\hline
+    D(Summons) & & 11.031$^{***}$ & & & & & 7.368$^{***}$ \\
+    & & (0.145) & & & & & (0.138) \\\hline
+    D(Mediation) & & & 5.605$^{***}$ & & & & 3.200$^{***}$ \\
+    & & & (0.153) & & & & (0.131) \\\hline
+    D(Jurisdiction) & & & & 6.985$^{***}$ & & & 5.471$^{***}$ \\
+    & & & & (0.151) & & & (0.130) \\\hline
+    D(Multiplicity) & & & & & 17.460$^{***}$ & & 9.926$^{***}$ \\
+    & & & & & (0.280) & & (0.262) \\\hline
+    D(Contested) & & & & & & 6.218$^{***}$ & 2.889$^{***}$ \\
+    & & & & & & (0.159) & (0.141) \\
+    \hline \\[-1.8ex]
+    State FE & Y & Y & Y & Y & Y & Y & Y \\
+    Year FE & Y & Y & Y & Y & Y & Y & Y \\
+    \hline \\[-1.8ex]
+    Observations & 35,427 & 35,427 & 35,427 & 35,427 & 35,427 & 35,427 & 35,427 \\
+    R$^{2}$ & 0.178 & 0.207 & 0.110 & 0.129 & 0.168 & 0.115 & 0.368 \\
+    Adjusted R$^{2}$ & 0.177 & 0.207 & 0.110 & 0.129 & 0.168 & 0.115 & 0.367 \\
+    \hline \\[-1.8ex]
+    \textit{Note:} & \multicolumn{7}{l}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\
+  \end{longtable}
+\end{frame}
+
+\begin{frame}
+  \frametitle{A closer look at mediation}
+  \footnotesize
+  \begin{longtable}{clrrr}
+    \toprule
+    \textbf{Disposal type} & \multicolumn{1}{c}{\textbf{Disposal sub-type}} & \multicolumn{1}{c}{\textbf{Total cases}} & \multicolumn{1}{c}{\textbf{Percentage}} & \multicolumn{1}{p{3cm}}{\textbf{Median duration (in days)}} \\
+    \midrule %\endhead
+    \multirow{3}{*}{Dismissed} & other & 478 & 5.46 & 710 \\
+                           & settlement & 8 & 0.09 & 512 \\
+                           & withdrawn & 2942 & 33.58 & 491 \\
+    \midrule
+\multirow{4}{*}{Disposed} & compounded & 459 & 5.24 & 638 \\
+                           & other & 1395 & 15.92 & 723 \\
+                           & settlement & 2945 & 33.62 & 527 \\
+                           & withdrawn & 213 & 2.43 & 462 \\
+    \midrule
+    Other & other & 320 & 3.65 & 752 \\
+    \midrule
+    \multicolumn{2}{c}{\textbf{Total}} & \textbf{8760} & \textbf{100.00} & \multicolumn{1}{c}{\textbf{-}} \\
+    \bottomrule \multicolumn{5}{p{11cm}}{\footnotesize \emph{Note:
+    The total is less than the total cases referred to mediation owing to the limitations in the data on disposal type and filing/disposal dates.}}
+  \end{longtable}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Summing up}
+  \begin{itemize}
+  \item Most of the Amici Curiae's recommendations target the right things.
+  \item But, greater mediation, without fundamentally changing the existing system, will increase delays.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Way forward}
  \begin{itemize}
  \item This study gives estimates of the scale of the impact of proposed interventions, thus giving a framework to prioritise the interventions
  \item The proportion of NI Act cases is significant (13.2\%) and highlights why it is necessary to support policy decisions with robust empirical studies.
@@ -135,6 +304,18 @@ Punjab & 5885 & 24739 & 19.2 & 30624 & 440\\
 
 \begin{frame}
  \centering \huge{Thank you}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+  \frametitle{Extracting case characteristics}
+  \begin{description}
+  \item [Non-appearance by the accused] -- We looked for references to Sec 72 CrPC, terms like \emph{accused not available/out of station/absconding/not present/absent}, or that \emph{accused's presence could not be secured}, or references to the issuance of a bailable/non-bailable warrant to secure the presence of the accused. In addition to this, we looked for references to non-appearance, absconsion, and bailable/non-bailable warrants in the data on the purpose of hearings.
+  \item \item [Case being converted to a summons trial] -- We looked for references to the case being tried under Sec 143 of the NI Act,\footnote{Sec 143, Negotiable Instruments Act. Power of Court to try cases summarily.} or Sec 262, 263, 264 or 265 of the CrPc,\footnote{Sec 262, 263, 264 or 265, Code of Criminal Procedure. Procedure for summary trials; Record in summary trials; Judgement in cases tried summarily; Language of record and judgment.} or references to the case being tried summarily. These cases were marked as not summons trials. Cases where these were deemed inapplicable, or the case was being conducted normally, or it is undesirable to try the case summarily, or the sections above not being applicable were marked as summons trials. Further, cases, where any hearing mentioned summons trial as the purpose, were marked as summons cases.
+  \item \item [Case referred to mediation] -- We looked for references to the case being referred to mediation/Lok Adalat/ADR, or references to the matter being settled mutually, or compromised. We also looked at references to the cases being sent to mediation in the hearings data, and references to the case concluding in the Lok Adalat or being settled mutually, or the parties reaching a compromise.
+  \item [Jurisdiction issue] -- We looked for references to lack of jurisdiction/lack of proper jurisdiction/beyond jurisdiction, references to Sec 142 of the NI Act, and citations of specific cases like \citetitle{sc2014_dhanuka},\footcite{sc2014_dhanuka} and \citetitle{sc2016_carbon}.\footcite{sc2016_carbon} Additionally, we looked at cases that were marked transferred from one court to another or were observed to be transferred in the hearings or disposal data since a vast majority of such transfers are due to jurisdictional issues.
+  \item [Multiplicity of proceedings] -- We looked for references to multiple cheques being dishonoured and multiple transactions, and references to Sec 219 and 220 of the CrPc.\footnote{Sec 219 and 220, Code of Criminal Procedure. Three offences of the same kind within a year may be charged together; Trial for more than one offence.}
+  \item [Contested cases] -- Whether or not a case was contested is reported by eCourts as part of the disposal type field.
+  \end{description}
 \end{frame}
 
 \end{document}

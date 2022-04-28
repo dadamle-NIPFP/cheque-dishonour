@@ -33,3 +33,14 @@ brief:
 	pdflatex policyBrief.tex
 	pdflatex policyBrief.tex
 	make clean
+
+slides:
+	make clean
+	pdflatex sl_NIAct.tex
+	pdflatex sl_NIAct.tex
+	pdflatex sl_NIAct.tex
+	biber sl_NIAct
+	pdflatex sl_NIAct.tex
+	pdflatex sl_NIAct.tex
+	pdflatex sl_NIAct.tex
+	make clean
