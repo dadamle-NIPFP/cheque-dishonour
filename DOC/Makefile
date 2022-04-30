@@ -20,6 +20,20 @@ paper:
 	pdflatex paper_chequeDishonour.tex
 	make clean
 
+combined:
+	make clean
+	pdflatex paper_chequeDishonour_combined.tex
+	pdflatex paper_chequeDishonour_combined.tex
+	pdflatex paper_chequeDishonour_combined.tex
+	makeglossaries paper_chequeDishonour_combined
+	pdflatex paper_chequeDishonour_combined.tex
+	pdflatex paper_chequeDishonour_combined.tex
+	biber paper_chequeDishonour_combined
+	pdflatex paper_chequeDishonour_combined.tex
+	pdflatex paper_chequeDishonour_combined.tex
+	pdflatex paper_chequeDishonour_combined.tex
+	make clean
+
 brief:
 	make clean
 	pdflatex policyBrief.tex

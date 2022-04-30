@@ -38,8 +38,9 @@
 \addbibresource{chequeBounce.bib}
 
 \usepackage[acronym,nonumberlist,nomain]{glossaries}
-\newglossaryentry{adr}{name={ADR},description={Alternative Dispute Resolution}}
-\newglossaryentry{crpc}{name={CrPC},description={Code of Criminal Procedure}}
+\makeglossary
+\newacronym{adr}{ADR}{Alternative Dispute Resolution}
+\newacronym{crpc}{CrPC}{Code of Criminal Procedure}
 \newacronym{coe}{CoE}{Committee of Experts}
 \newacronym{lci}{LCI}{Law Commission of India}
 \newacronym{ni}{NI Act}{Negotiable Instruments Act, 1881}
@@ -803,7 +804,7 @@ However, when we use Kaplan-Meier non-parametric statistics to estimate a surviv
 \begin{figure}[ht]
 \centering
 \caption{Survival probability of cases across years}\label{fig:yearSurvival}
-\includegraphics[width = 0.9\textwidth]{surv_years}
+\includegraphics[width = 0.9\textwidth]{surv_years-1.png}
 \end{figure}
 
 {\footnotesize \begin{longtable}{lcc|ccc}
